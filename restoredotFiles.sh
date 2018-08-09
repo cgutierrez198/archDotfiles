@@ -7,7 +7,7 @@ destination="~/Repositories/archdotfiles"
 for i in "${arr[@]}"
 do
         
-    rsync  -arP  ~/Repositories/archdotfiles/$i ~/$config
+    rsync  -arP  ~/Repositories/archdotfiles/${i%/*} ~/$config
 done
 
 
