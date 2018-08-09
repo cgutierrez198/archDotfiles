@@ -1,0 +1,3 @@
+
+
+-o ~/Movies/%(title)s.%(ext)s
