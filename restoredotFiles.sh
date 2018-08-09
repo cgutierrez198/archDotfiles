@@ -3,7 +3,7 @@ declare -a arr=("i3/config" "compton.conf" "nvim/init.vim" "ranger/plugins/__ini
 declare -a arr2=(".Xresources" ".xinitrc" ".tmux.conf" ".bashrc" ".zshrc")
 
 config=".config/"
-destination="~/Repositories/archDotfiles"
+destination="~/Repositories/archdotfiles"
 for i in "${arr[@]}"
 do
         
@@ -13,12 +13,12 @@ do
 else
     touch $i
 fi
-    rsync  -arP  ~/Repositories/archDotfiles/$i ~/$config
+    rsync  -arP  ~/Repositories/archdotfiles/$i ~/$config
 done
 
 
 for i in "${arr2[@]}"
 do
-    rsync  -aP  ~/Repositories/archDotfiles/$i ~/
+    rsync  -aP  ~/Repositories/archdotfiles/$i ~/
 done
 
