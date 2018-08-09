@@ -7,6 +7,12 @@ destination="~/Repositories/archDotfiles"
 for i in "${arr[@]}"
 do
         
+    if [[ $i = *"/"* ]] ;then
+    mkdir -p ~/.config/${i%/*}
+    
+else
+    touch $i
+fi
     rsync  -arP  ~/Repositories/archDotfiles/$i ~/$config
 done
 
