@@ -6,6 +6,11 @@ if [[ "$SSH_AGENT_PID" == "" ]]; then
 fi
 
 # Lines configured by zsh-newuser-install
+export ORACLE_BASE=/oracle
+export ORACLE_HOME=/oracle/app/honwei/product/12.2.0/dbhome_1
+export ORACLE_SID=orcl
+export PATH=$PATH:$ORACLE_HOME/bin
+export PATH=$PATH:$HOME/.gem/ruby/2.5.0/bin
 HISTFILE=~/.histfile
 HISTSIZE=2000
 SAVEHIST=4000
@@ -26,12 +31,13 @@ ZSH_THEME="jonathan"
 #ZSH_THEME="xiong-chiamiov-plus"
 #ZSH_THEME="bira"
 #
-#
 alias click='w3m -o auto_image=FALSE'
 alias finch='chat'
 alias ls='ls --color=auto'
 export PATH="$HOME/bin:$PATH"
-export PATH="$HOME/.gem/ruby/2.4.0/bin:$PATH"
+#export PATH="$HOME/.gem/ruby/2.4.0/bin:$PATH"
+export PATH="/home/honwei/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
 alias ranger='ranger --choosedir=$HOME/rangerdir;LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
 alias last_DIR='LASTDIR=`cat $HOME/rangerdir`;cd "$LASTDIR"'
 alias vim='nvim'

@@ -214,7 +214,8 @@ bar {
 
 
 
-	status_command  ~/Repositories/bumblebee-status/bumblebee-status -m nic disk:root disk:home cpu memory battery date time pasink -p battery.device=BAT0 interval=4  root.path=/ home.path=/home time.format="%I:%M CW %V" date.format="%a, %b %d %Y" -t solarized-powerline
+	#status_command  ~/Repositories/bumblebee-status/bumblebee-status -m nic disk:root disk:home disk:extDrive cpu memory battery date time pasink -p battery.device=BAT0 interval=4  root.path=/ home.path=/home extDrive.path=/home/honwei/extDrive time.format="%I:%M CW %V" date.format="%a, %b %d %Y" -t solarized-powerline
+	status_command  ~/Repositories/bumblebee-status/bumblebee-status -m nic disk:root disk:home  cpu memory battery date time weather pasink -p battery.device=BAT0 interval=4  root.path=/ home.path=/home  time.format="%I:%M CW %V" date.format="%a, %b %d %Y" weather.unit="imperial" -t solarized-powerline
 
 
 	position top

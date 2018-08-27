@@ -73,7 +73,7 @@
  Plug 'rafi/awesome-vim-colorschemes'
  
  Plug 'scrooloose/nerdtree'
- 
+ Plug 'vim-scripts/dbext.vim' 
  
  " All of your Plugins must be added before the following line
  call plug#end()            " required
@@ -266,7 +266,8 @@ let g:deoplete#sources#ternjs#include_keywords = 1
 
 " If completions should be returned when inside a literal. Default: 1
 let g:deoplete#sources#ternjs#in_literal = 0
- 
+let g:python3_host_prog = '/home/honwei/.pyenv/versions/neovim3/bin/python'
+let g:dbext_default_profile_mySQL = 'type=MYSQL:user=SYS:passwd=password:dbname=orcl'
  "will put icons in Vim's gutter on lines that have a diagnostic set.
  "Turning this off will also turn off the YcmErrorLine and YcmWarningLine
  "highlighting
