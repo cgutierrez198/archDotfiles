@@ -40,6 +40,8 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec urxvt
 
+bindsym $mod+backslash exec emacs
+
 bindsym $mod+Scroll_Lock exec --no-startup-id i3lock -i /home/honwei/Pictures/Wallpapers/png_converts/05D.png
 
 # kill focused window
@@ -187,6 +189,11 @@ bindsym XF86AudioNext exec --no-startup-id compton-trans -c +5
 
 bindsym XF86AudioPrev exec --no-startup-id compton-trans -c -5
 
+
+
+#STOP/HIDE EVERYTHING:
+bindsym $mod+Shift+Delete	exec --no-startup-id lmc truemute ; exec $truepause ; exec --no-startup-id pauseallmpv; workspace 0; exec urxvt -e cmatrix;  split v ;exec urxvt -e htop ; exec urxvt -e ranger ;
+
 # Set colors from Xresources
 # Change 'color7' and 'color2' to whatever colors you want i3 to use 
 # from the generated scheme.
@@ -215,7 +222,7 @@ bar {
 
 
 	#status_command  ~/Repositories/bumblebee-status/bumblebee-status -m nic disk:root disk:home disk:extDrive cpu memory battery date time pasink -p battery.device=BAT0 interval=4  root.path=/ home.path=/home extDrive.path=/home/honwei/extDrive time.format="%I:%M CW %V" date.format="%a, %b %d %Y" -t solarized-powerline
-	status_command  ~/Repositories/bumblebee-status/bumblebee-status -m nic disk:root disk:home  cpu memory battery date time weather pasink -p battery.device=BAT0 interval=4  root.path=/ home.path=/home  time.format="%I:%M CW %V" date.format="%a, %b %d %Y" weather.unit="imperial" -t solarized-powerline
+	status_command  ~/Repositories/bumblebee-status/bumblebee-status -m nic disk:root disk:home  cpu memory battery date time pacman pasink -p battery.device=BAT0 interval=4  root.path=/ home.path=/home  time.format="%I:%M CW %V" date.format="%a, %b %d %Y" weather.unit="imperial" -t solarized-powerline
 
 
 	position top

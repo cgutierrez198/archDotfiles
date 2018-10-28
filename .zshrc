@@ -6,10 +6,15 @@ if [[ "$SSH_AGENT_PID" == "" ]]; then
 fi
 
 # Lines configured by zsh-newuser-install
-export ORACLE_BASE=/oracle
-export ORACLE_HOME=/oracle/app/honwei/product/12.2.0/dbhome_1
-export ORACLE_SID=orcl
+ export ORACLE_BASE=/oracle
+ export ORACLE_HOME=/oracle/app/honwei/product/12.2.0/dbhome_1
+ export ORACLE_SID=orcl
+ 
+
+#export ORACLE_HOME=/usr/lib/oracle/product/11.2.0/xe
+#export ORACLE_SID=XE
 export PATH=$PATH:$ORACLE_HOME/bin
+
 export PATH=$PATH:$HOME/.gem/ruby/2.5.0/bin
 HISTFILE=~/.histfile
 HISTSIZE=2000
@@ -42,6 +47,7 @@ alias ranger='ranger --choosedir=$HOME/rangerdir;LASTDIR=`cat $HOME/rangerdir`; 
 alias last_DIR='LASTDIR=`cat $HOME/rangerdir`;cd "$LASTDIR"'
 alias vim='nvim'
 alias youtube-dl_Movies='youtube-dl --config-location ~/.config/youtube-dl/movies'
+alias sqlplus='cd $ORACLE_BASE ; sqlplus'
 export EDITOR=nvim
 neofetch --caca  /home/honwei/Pictures/honwei2.png --size 30% 
 alias mupdf='mupdf -C 00ff00 -I'

@@ -22,6 +22,7 @@
  " Pass the path to set the runtimepath properly.
  " for HTML editing
  Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
+ Plug 'mattn/emmet-vim'
  " Install L9 and avoid a Naming conflict if you've already installed a
  " different version somewhere else.
  "Plugin 'ascenator/L9', {'name': 'newL9'}
@@ -46,7 +47,7 @@
                                
  Plug 'Shougo/vimproc.vim', {'do' : 'make'}
  Plug 'neovim/node-host', { 'do': 'npm install' }
-                                                  
+ Plug 'starcraftman/vim-eclim'                                                  
  "
   function! BuildComposer(info)
    if a:info.status != 'unchanged' || a:info.force
@@ -74,7 +75,20 @@
  
  Plug 'scrooloose/nerdtree'
  Plug 'vim-scripts/dbext.vim' 
- 
+ Plug 'ncm2/ncm2' 
+ Plug 'roxma/nvim-yarp'
+ Plug 'vim-scripts/java_getset.vim'
+
+ " enable ncm2 for all buffers
+ autocmd BufEnter * call ncm2#enable_for_buffer()
+
+ " IMPORTANTE: :help Ncm2PopupOpen for more information
+ set completeopt=noinsert,menuone,noselect
+ " NOTE: you need to install completion sources to get completions. Check
+ " our wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
+ Plug 'ncm2/ncm2-bufword'
+ Plug 'ncm2/ncm2-tmux'
+ Plug 'ncm2/ncm2-path'
  " All of your Plugins must be added before the following line
  call plug#end()            " required
  filetype plugin indent on    " required
@@ -138,7 +152,9 @@
     call setpos('.', position)
     return s:word_count 
  endfunction                    
- 
+ let g:EclimJavaValidate = 0
+autocmd FileType java let g:ale_java_javac_classpath=eclim#Execute('-command java_classpath -p ' . eclim#project#util#GetCurrentProjectName())
+
  au BufNewFile,BufRead *.py
      \ set tabstop=4
      \ set softtabstop=4
@@ -174,7 +190,7 @@
  """"  Java Complete  """"
  """""""""""""""""""""""""
   autocmd FileType java setlocal omnifunc=javacomplete#Complete
-  autocmd FileType java let  g:deoplete#disable_auto_complete =1
+  autocmd FileType java let  g:deoplete#disable_auto_complete =0
 
  " To open R in terminal rather than RGui (only necessary on OS X)
  " let vimrplugin_applescript = 0
@@ -225,6 +241,9 @@ let g:deoplete#sources#ternjs#timeout = 1
 " Whether to include the types of the completions in the result data. Default: 0
 let g:deoplete#sources#ternjs#types = 1
 
+"remap of localeader key
+let maplocalleader = ','
+map <localeader> <C-+> <Plug>JavagetsetInsertGetterSetter
 " Whether to include the distance (in scopes for variables, in prototypes for 
 " properties) between the completions and the origin position in the result 
 " data. Default: 0
@@ -267,7 +286,8 @@ let g:deoplete#sources#ternjs#include_keywords = 1
 " If completions should be returned when inside a literal. Default: 1
 let g:deoplete#sources#ternjs#in_literal = 0 
 let g:python3_host_prog ="/home/honwei/.pyenv/versions/neovim3/bin/python"
-let g:dbext_default_profile_mySQL = 'type=MYSQL:user=SYS:passwd=password:dbname=orcl'
+let g:dbext_default_login_script_dir ='/oracle/'
+let g:dbext_default_profile_ORA_Extended = 'type=ORA:user=cgutierrez:passwd=tacotuesday:srvname=(description=(address=(protocol=TCP)(host=localhost)(port=1521))(connect_data=(server=dedicated)(service_name=dbtest1))):login_script=sqlStyle.sql'
  "will put icons in Vim's gutter on lines that have a diagnostic set.
  "Turning this off will also turn off the YcmErrorLine and YcmWarningLine
  "highlighting
